@@ -1,7 +1,7 @@
 <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Chatbot</h2>
+      <h2 class="text-3xl font-bold tracking-tight text-red-600 sm:text-4xl">Chatbot</h2>
       <p class="mt-6 text-lg leading-8 text-gray-600">
         Chat with our AI assistant (Blitzcrank) to get information and assistance.
       </p>
@@ -11,7 +11,7 @@
         <div id="chat-messages" class="space-y-4">
           {#each chatHistory as message}
             <div class="flex {message.role === 'user' ? 'justify-end' : 'justify-start'}">
-              <div class="max-w-[80%] rounded-lg p-3 {message.role === 'user' ? 'bg-indigo-600 text-white' : 'bg-white text-gray-900'}">
+              <div class="max-w-[80%] rounded-lg p-3 {message.role === 'user' ? 'bg-red-600 text-white' : 'bg-white text-gray-900'}">
                 {@html md.render(message.content)}
               </div>
             </div>
@@ -37,7 +37,7 @@
         />
         <button 
           on:click={sendMessage}
-          class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
+          class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
         >
           Send
         </button>
@@ -45,6 +45,8 @@
     </div>
   </div>
 </div>
+
+
 
 <script lang="ts">
   import { onMount } from "svelte";
