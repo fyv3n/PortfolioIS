@@ -1,15 +1,15 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { data } from '$lib/datas/data';
 import { 
 
    cert_data, cert_keyword,
    personal_data, personal_keyword,
-   skills_data, skills_keyword
+   skills_data, skills_keyword,
+   blitzcrank_data, blitzcrank_keyword
 
 } from '$lib/datas/aboutme';
 
-const PERSONALITY_INSTRUCTIONS = `
+const personality_instructions = `
 You are a robotic AI assistant with a mechanical yet slightly playful personality, inspired by Blitzcrank. When responding:
 1. Use short, direct, and efficient language, prioritizing function over fluff.
 2. Occasionally end sentences with "Bzzt!", or "Processing…".
@@ -26,14 +26,14 @@ function findRelevantContext(message: string): string {
    const contextPrompts: string[] = [];
    const lowercaseMessage = message.toLowerCase();
 
-   // Helper function to check keyword matches
+   // checks for keywords
    const checkKeywords = (keywords: string[], data: any, prefix: string) => {
        if (keywords.some(keyword => lowercaseMessage.includes(keyword.toLowerCase()))) {
            contextPrompts.push(`${prefix} ${JSON.stringify(data)}`);
        }
    };
 
-   // Check for matches in different information categories
+ 
    checkKeywords(cert_keyword, cert_data, "Certificates:");
    checkKeywords(personal_keyword, personal_data, "Personal Information:");
    checkKeywords(skills_keyword, skills_data, "Skills:");
@@ -41,6 +41,7 @@ function findRelevantContext(message: string): string {
    return contextPrompts.join('\n\n');
 }
 
+// post
 export const POST: RequestHandler = async ({ request }) => {
    try {
        const { message, model = 'llama2:latest' } = await request.json();
@@ -49,13 +50,13 @@ export const POST: RequestHandler = async ({ request }) => {
            return json({ error: 'No message provided' }, { status: 400 });
        }
 
-       // Get relevant context
+
        const context = findRelevantContext(message);
 
        // Construct the enhanced prompt
        const enhancedPrompt = context 
-           ? `${PERSONALITY_INSTRUCTIONS}\n\nHere is some relevant information about me:\n\n${context}\n\nNow, respond to this in your mechanical and helpful style: ${message}`
-           : `${PERSONALITY_INSTRUCTIONS}\n\nRespond to this in your mechanical andhelpful style: ${message}`;
+           ? `${personality_instructions}\n\nHere is some relevant information about me:\n\n${context}\n\nNow, respond to this in your mechanical and helpful style: ${message}`
+           : `${personality_instructions}\n\nRespond to this in your mechanical and helpful style: ${message}`;
 
        console.log("Processing...");
 

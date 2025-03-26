@@ -18,4 +18,7 @@ export const cert_data = {
     ]
 };
 
-export const cert_keyword = ['certificate', 'certificates', 'certification', 'certifications', 'what is your master certificate', 'what is your certificate', 'what is your master certifications', 'what is your certifications'];
+export const cert_keyword = ['certificate', 'certificates', 'certification', 'certifications', 
+    'what is your master certificate', 'what is your certificate', 'what is your master certifications', 
+    'what is your certifications'
+];

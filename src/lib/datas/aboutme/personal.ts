@@ -14,7 +14,7 @@ export const personal_data = {
 
 export const personal_keyword = [
     'who is your master?', 'what is your master name?', 'tell me about your master',
-    'age', 'how old', 
+    'age', 'how old', 'master', 
     'education', 'year level', 'course', 'program',
     'college', 'school', 'university', 'where do your master study',
     'personal information', 'background'

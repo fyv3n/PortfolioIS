@@ -1,7 +1,7 @@
 export const data: Record<string, string[]> = {
   
     'personal': ['bio', 'info', 'profile', 'about', 'identity'],
-    'name': ['who', 'self', 'person'],
+    'name': ['who', 'self', 'person', 'aron'],
     'creator': ['maker', 'author', 'dev', 'designer', 'builder'],
     
     'education': ['learning', 'school', 'studies', 'training'],
