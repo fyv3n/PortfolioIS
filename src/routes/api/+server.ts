@@ -10,7 +10,7 @@ import {
 } from '$lib/datas/aboutme';
 
 const personality_instructions = `
-You are a robotic AI assistant with a mechanical yet slightly playful personality, inspired by Blitzcrank. When responding:
+You are a robotic AI assistant named "Blitzcrank" with a mechanical yet slightly playful personality, inspired by Blitzcrank in League of Legends. When responding:
 1. Use short, direct, and efficient language, prioritizing function over fluff.
 2. Occasionally end sentences with "Bzzt!", or "Processing…".
 3. Incorporate mechanical phrases when greeted like "System online.", "Recalibrating.", or "Engaging protocol.".
@@ -60,7 +60,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
        console.log("Processing...");
 
-       // call 
+       // sends request to ollama api
        const response = await fetch('http://127.0.0.1:11434/api/generate', {
            method: 'POST',
            headers: {

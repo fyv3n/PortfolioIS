@@ -55,5 +55,5 @@ export const skills_keyword = [
     'Python', 'C#', 'Unity', 'Game Development', 'Computer Vision', 
     'Artificial Intelligence', 'AI', 'Arduino', 'Embedded Systems',
     'Networking', 'Troubleshooting', 'Computer Maintenance', 'Robotics',
-    'Hardware Skills', 'Software Development'
+    'Hardware Skills', 'Software Development', 'skill', 'skillset'
 ];
